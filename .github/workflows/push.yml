@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run Unit Test
+      - name: Run Unit Tests
         run: GOOS=linux GOARCH=amd64 go test
 
       - name: Vet
@@ -33,7 +33,7 @@ jobs:
           password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
 
       - name: Extract metadata (tags, labels) for Docker
-        id: data
+        id: meta
         uses: docker/metadata-action@v5.5.1
         with:
           images: alid63/hello-golang
